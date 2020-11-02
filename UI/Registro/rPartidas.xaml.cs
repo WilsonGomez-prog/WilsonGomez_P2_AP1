@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WilsonGomez_P2_AP1.Entidades;
 
 namespace WilsonGomez_P2_AP1.UI.Registro
 {
@@ -17,9 +18,15 @@ namespace WilsonGomez_P2_AP1.UI.Registro
     /// </summary>
     public partial class rPartidas : Window
     {
+        public Proyectos Proyectos;
         public rPartidas()
         {
             InitializeComponent();
+            Proyectos = new Proyectos();
+            this.DataContext = Proyectos;
+
+            DetallesDataGrid.ItemsSource = new List<ProyectosDetalle>();
+
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)

@@ -5,40 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WilsonGomez_P2_AP1.UI.Registro"
         mc:Ignorable="d"
-        Title="Registro de Equipo" Height="550" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Registro de Equipo" Height="700" Width="700" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel>
             <StackPanel>
-                <Label Content="ID: " FontSize="15" HorizontalAlignment="Left" Margin="14,10,0,0"/>
-                <TextBox x:Name="IdTextbox" HorizontalAlignment="Left" Width="50" Height="30" Margin="20,0,0,0"/>
-                <Button x:Name="BuscarButton" Width="70" Height="30" Click="BuscarButton_Click" HorizontalAlignment="Left" Margin="80,-30,0,0">
+                <Label Content="Proyecto ID: " FontSize="15" HorizontalAlignment="Left" Margin="14,10,0,0"/>
+                <TextBox x:Name="IdTextbox" Text="{Binding ProyectoId}" HorizontalAlignment="Left" Width="80" Height="30" Margin="20,0,0,0"/>
+                <Button x:Name="BuscarButton" Width="70" Height="30" Click="BuscarButton_Click" HorizontalAlignment="Left" Margin="110,-30,0,0">
                     <DockPanel>
                         <TextBlock HorizontalAlignment="Left" FontSize="15">Buscar</TextBlock>
                         <Image Source="/Imagenes/search_icon.png" Height="15" HorizontalAlignment="Right" Margin="3,0,0,0"/>
                     </DockPanel>
                 </Button>
+
+                <Label Content="Fecha: " FontSize="15" HorizontalAlignment="Left" Margin="14,10,0,0"/>
+                <DatePicker x:Name="FechaDatePicker" Text="{Binding Fecha}" HorizontalAlignment="Left" Margin="20,0,0,0" Height="30"/>
+
+                <Label Content="Descripción del Proyecto: " FontSize="15" HorizontalAlignment="Left" Margin="14,10,0,0"/>
+                <TextBox x:Name="DescripcionTextbox" Text="{Binding Descripcion}" Width="455" Height="60" HorizontalAlignment="Left" Margin="20,0,0,0"/>
             </StackPanel>
 
-            <StackPanel Width="475" HorizontalAlignment="Center">
+            <StackPanel Width="675" HorizontalAlignment="Center">
 
                 <!--Marco del detalle-->
                 <GroupBox Header=" Detalle " FontSize="15" BorderBrush="Black">
                     <StackPanel>
 
+                        <Label Content="Tipo Tarea:" FontSize="15" Height="30" Width="87" HorizontalAlignment="Left" Margin="0, -10, 0, 0"/>
+                        <ComboBox x:Name="TipoTareaIdComboBox" Text="{Binding TipoTareaId}" Height="25" Width="160" HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
+
+                        <Label Content="Requerimiento: " FontSize="15" HorizontalAlignment="Left" Margin="200,-55,0,0"/>
+                        <TextBox x:Name="RequerimientoTextbox" Text="{Binding Requerimiento}" HorizontalAlignment="Left" Width="200" Height="30" Margin="205,-30,0,0"/>
+
+                        <Label Content="Tiempo(en minutos): " FontSize="15" HorizontalAlignment="Left" Margin="415,-55,0,0"/>
+                        <TextBox x:Name="TiempoTextbox" Text="{Binding Requerimiento}" HorizontalAlignment="Left" Width="140" Height="30" Margin="420,-30,0,0"/>
+
                         <!--Agregar registro al detalle-->
-                        <Button x:Name="AgregarButton" FontSize="12" Width="70" Height="30" Click="AgregarButton_Click" HorizontalAlignment="Left" Margin="390,0,0,0">
+                        <Button x:Name="AgregarButton" FontSize="12" Width="70" Height="30" Click="AgregarButton_Click" HorizontalAlignment="Left" Margin="590,-35,0,0">
                             <DockPanel>
                                 <TextBlock HorizontalAlignment="Left">Agregar</TextBlock>
                                 <Image Source="/Imagenes/add_icon.png" Height="20" HorizontalAlignment="Right" Margin="3,0,0,0"/>
                             </DockPanel>
                         </Button>
 
-                        <!--Detalle de-->
-                        <DataGrid x:Name="DetallesDataGrid" ItemsSource="{Binding}" IsReadOnly="True" AutoGenerateColumns="False" Height="200" Width="455" Margin="0,5,0,0">
+                        <!--Detalle de Proyecto-->
+                        <DataGrid x:Name="DetallesDataGrid" IsReadOnly="True" AutoGenerateColumns="False" Height="200" Width="655" Margin="0,5,0,0">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Jugador ID" Binding="{Binding Id}" Width="*"/>
-                                <DataGridTextColumn Header="Nombre" Binding="{Binding Id}" Width="*"/>
-                                <DataGridTextColumn Header="Posición" Binding="{Binding Id}" Width="*"/>
+                                <DataGridTextColumn Header="Tipo ID" Binding="{Binding TipoTareaId}" Width="*"/>
+                                <DataGridTextColumn Header="Tipo Tarea" Binding="{Binding TipoTarea}" Width="*"/>
+                                <DataGridTextColumn Header="Requerimiento" Binding="{Binding Requerimiento}" Width="*"/>
+                                <DataGridTextColumn Header="Tiempo" Binding="{Binding Tiempo}" Width="*"/>
                             </DataGrid.Columns>
                         </DataGrid>
 
