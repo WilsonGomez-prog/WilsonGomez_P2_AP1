@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WilsonGomez_P2_AP1.UI.Consultas;
 using WilsonGomez_P2_AP1.UI.Registro;
 
 namespace WilsonGomez_P2_AP1
@@ -26,11 +27,18 @@ namespace WilsonGomez_P2_AP1
             InitializeComponent();
         }
 
-        private void rMenuItem_Click(object sender, RoutedEventArgs e)
+        private void rPartidasMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            rParcial rParcial = new rParcial();
+            rPartidas rPartidas = new rPartidas();
 
-            rParcial.Show();
+            rPartidas.Show();
+        }
+
+        private void cPartidasMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cPartidas cPartidas = new cPartidas();
+
+            cPartidas.Show();
         }
     }
 }

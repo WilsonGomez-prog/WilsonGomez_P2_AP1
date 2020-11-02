@@ -13,11 +13,11 @@ using System.Windows.Shapes;
 namespace WilsonGomez_P2_AP1.UI.Registro
 {
     /// <summary>
-    /// Lógica de interacción para rParcial.xaml
+    /// Lógica de interacción para rPartidas.xaml
     /// </summary>
-    public partial class rParcial : Window
+    public partial class rPartidas : Window
     {
-        public rParcial()
+        public rPartidas()
         {
             InitializeComponent();
         }

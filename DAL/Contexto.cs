@@ -10,5 +10,10 @@ namespace WilsonGomez_P2_AP1.DAL
 
             optionsBuilder.UseSqlite(@"Data Source = DATA\Parcial2.db");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
