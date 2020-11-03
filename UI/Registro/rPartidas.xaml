@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WilsonGomez_P2_AP1.UI.Registro"
         mc:Ignorable="d"
-        Title="Registro de Equipo" Height="700" Width="700" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Registro de Proyectos" Height="650" Width="700" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel>
             <StackPanel>
@@ -28,10 +28,10 @@
             <StackPanel Width="675" HorizontalAlignment="Center">
 
                 <!--Marco del detalle-->
-                <GroupBox Header=" Detalle " FontSize="15" BorderBrush="Black">
+                <GroupBox Header=" Detalle de tareas a realizar" FontSize="15" BorderBrush="Black">
                     <StackPanel>
 
-                        <Label Content="Tipo Tarea:" FontSize="15" Height="30" Width="87" HorizontalAlignment="Left" Margin="0, -10, 0, 0"/>
+                        <Label Content="Tipo Tarea:" FontSize="15" Height="30" Width="87" HorizontalAlignment="Left" Margin="0, -5, 0, 0"/>
                         <ComboBox x:Name="TipoTareaIdComboBox" Text="{Binding TipoTareaId}" Height="25" Width="160" HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
 
                         <Label Content="Requerimiento: " FontSize="15" HorizontalAlignment="Left" Margin="200,-55,0,0"/>
@@ -40,7 +40,7 @@
                         <Label Content="Tiempo(en minutos): " FontSize="15" HorizontalAlignment="Left" Margin="415,-55,0,0"/>
                         <TextBox x:Name="TiempoTextbox" Text="{Binding Requerimiento}" HorizontalAlignment="Left" Width="140" Height="30" Margin="420,-30,0,0"/>
 
-                        <!--Agregar registro al detalle-->
+                        <!--Agregar tarea al detalle-->
                         <Button x:Name="AgregarButton" FontSize="12" Width="70" Height="30" Click="AgregarButton_Click" HorizontalAlignment="Left" Margin="590,-35,0,0">
                             <DockPanel>
                                 <TextBlock HorizontalAlignment="Left">Agregar</TextBlock>
@@ -51,20 +51,23 @@
                         <!--Detalle de Proyecto-->
                         <DataGrid x:Name="DetallesDataGrid" IsReadOnly="True" AutoGenerateColumns="False" Height="200" Width="655" Margin="0,5,0,0">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Tipo ID" Binding="{Binding TipoTareaId}" Width="*"/>
-                                <DataGridTextColumn Header="Tipo Tarea" Binding="{Binding TipoTarea}" Width="*"/>
+                                <DataGridTextColumn Header="Tipo ID" Binding="{Binding TipoTareaId}" Width="80"/>
+                                <DataGridTextColumn Header="Tipo Tarea" Binding="{Binding TipoTarea}" Width="150"/>
                                 <DataGridTextColumn Header="Requerimiento" Binding="{Binding Requerimiento}" Width="*"/>
-                                <DataGridTextColumn Header="Tiempo" Binding="{Binding Tiempo}" Width="*"/>
+                                <DataGridTextColumn Header="Tiempo" Binding="{Binding Tiempo}" Width="80"/>
                             </DataGrid.Columns>
                         </DataGrid>
 
-                        <!--Remover registro en el detalle-->
-                        <Button x:Name="RemoverButton" FontSize="12" Width="200" Height="30" Click="RemoverButton_Click" HorizontalAlignment="Center" Margin="0,5,0,0">
+                        <!--Remover tarea en el detalle-->
+                        <Button x:Name="RemoverButton" FontSize="12" Width="200" Height="30" Click="RemoverButton_Click" HorizontalAlignment="Center" Margin="-150,5,0,0">
                             <DockPanel>
                                 <TextBlock HorizontalAlignment="Left" Margin="0,2,0,0">Remover fila seleccionada</TextBlock>
                                 <Image Source="/Imagenes/remove_icon.png" Height="20" HorizontalAlignment="Right" Margin="3,0,0,0"/>
                             </DockPanel>
                         </Button>
+
+                        <Label Content="Tiempo total: " FontSize="15" HorizontalAlignment="Left" Margin="400,-30,0,0"/>
+                        <TextBox x:Name="TiempoTotalTextbox" Text="{Binding TiempoTotal}" HorizontalAlignment="Left" Width="140" Height="30" Margin="512,-30,0,0" IsReadOnly="True"/>
 
                     </StackPanel>
                 </GroupBox>

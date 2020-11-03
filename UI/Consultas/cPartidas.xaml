@@ -5,19 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WilsonGomez_P2_AP1.UI.Consultas"
         mc:Ignorable="d"
-        Title="Consulta de partidas" Height="450" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Consulta de partidas" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel>
             <StackPanel>
-                <Label Content="Filtro:" FontSize="15" HorizontalAlignment="Left" Margin="20,0,0,0" />
-                <ComboBox x:Name="FiltroComboBox" HorizontalAlignment="Left" Width="120" Height="30" Margin="30,0,0,0">
+
+                <Label Content="Desde:" FontSize="15" Margin="15,0,0,0"/>
+                <DatePicker x:Name="DesdeDataPicker" Width="150" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+
+                <Label Content="Hasta:" FontSize="15" Margin="180,-55,0,0"/>
+                <DatePicker x:Name="HastaDataPicker"  Margin="-250,-25,0,0" Width="177" />
+
+                <Label Content="Filtro:" FontSize="15" HorizontalAlignment="Left" Margin="400,-55,0,0" />
+                <ComboBox x:Name="FiltroComboBox" HorizontalAlignment="Left" Width="120" Height="30" Margin="405,-25,0,0">
 
                 </ComboBox>
 
-                <Label Content="Criterio:" FontSize="15" HorizontalAlignment="Left" Margin="200,-65,0,0" />
-                <TextBox x:Name="CriterioTextBox" Width="120" Height="30" HorizontalAlignment="Left" Margin="210,-30,0,0"/>
+                <Label Content="Criterio:" FontSize="15" HorizontalAlignment="Left" Margin="550,-65,0,0" />
+                <TextBox x:Name="CriterioTextBox" Width="120" Height="30" HorizontalAlignment="Left" Margin="560,-30,0,0"/>
 
-                <Button x:Name="BuscarButton" Width="70" Height="30" Click="BuscarButton_Click" HorizontalAlignment="Left" Margin="400,-30,0,0">
+                <Button x:Name="BuscarButton" Width="70" Height="30" Click="BuscarButton_Click" HorizontalAlignment="Left" Margin="700,-30,0,0">
                     <DockPanel>
                         <TextBlock HorizontalAlignment="Left" FontSize="15">Buscar</TextBlock>
                         <Image Source="/Imagenes/search_icon.png" Height="15" HorizontalAlignment="Right" Margin="3,0,0,0"/>
@@ -26,11 +33,12 @@
             </StackPanel>
 
             <StackPanel>
-                <DataGrid x:Name="DatosDataGrid" Height="325" Width="540" HorizontalAlignment="Left" Margin="30,5,0,0" AutoGenerateColumns="False">
+                <DataGrid x:Name="DatosDataGrid" Height="325" Width="750" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="20,10,0,0" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="" Binding="{Binding }"/>
-                        <DataGridTextColumn Header="" Binding="{Binding}"/>
-                        <DataGridTextColumn Header="" Binding="{Binding}"/>
+                        <DataGridTextColumn Header="ID" Binding="{Binding ProyectoId}" Width="80"/>
+                        <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha}" Width="*"/>
+                        <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" Width="*"/>
+                        <DataGridTextColumn Header="Tiempo Total" Binding="{Binding TiempoTotal}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

@@ -27,14 +27,14 @@ namespace WilsonGomez_P2_AP1
             InitializeComponent();
         }
 
-        private void rPartidasMenuItem_Click(object sender, RoutedEventArgs e)
+        private void rProyectosMenuItem_Click(object sender, RoutedEventArgs e)
         {
             rPartidas rPartidas = new rPartidas();
 
             rPartidas.Show();
         }
 
-        private void cPartidasMenuItem_Click(object sender, RoutedEventArgs e)
+        private void cProyectosMenuItem_Click(object sender, RoutedEventArgs e)
         {
             cPartidas cPartidas = new cPartidas();
 

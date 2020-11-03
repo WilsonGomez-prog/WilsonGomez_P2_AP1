@@ -28,6 +28,9 @@ namespace WilsonGomez_P2_AP1.Migrations
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("TiempoTotal")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("ProyectoId");
 
                     b.ToTable("Proyectos");

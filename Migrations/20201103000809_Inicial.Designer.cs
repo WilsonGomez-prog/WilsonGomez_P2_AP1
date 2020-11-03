@@ -9,7 +9,7 @@ using WilsonGomez_P2_AP1.DAL;
 namespace WilsonGomez_P2_AP1.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20201102232933_Inicial")]
+    [Migration("20201103000809_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,6 +29,9 @@ namespace WilsonGomez_P2_AP1.Migrations
 
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("TiempoTotal")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("ProyectoId");
 

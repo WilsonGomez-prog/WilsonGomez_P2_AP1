@@ -14,7 +14,8 @@ namespace WilsonGomez_P2_AP1.Migrations
                     ProyectoId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Fecha = table.Column<DateTime>(nullable: false),
-                    Descripcion = table.Column<string>(nullable: true)
+                    Descripcion = table.Column<string>(nullable: true),
+                    TiempoTotal = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

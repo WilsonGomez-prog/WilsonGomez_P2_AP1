@@ -23,9 +23,8 @@ namespace WilsonGomez_P2_AP1.Entidades
             Tiempo = 0;
         }
 
-        public ProyectosDetalle(int detalleId, int proyectoId, int tipoTareaId, string requerimiento, int tiempo)
+        public ProyectosDetalle(int proyectoId, int tipoTareaId, string requerimiento, int tiempo)
         {
-            DetalleId = detalleId;
             ProyectoId = proyectoId;
             TipoTareaId = tipoTareaId;
             Requerimiento = requerimiento;

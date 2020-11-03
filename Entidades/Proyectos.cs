@@ -12,6 +12,7 @@ namespace WilsonGomez_P2_AP1.Entidades
         public int ProyectoId { get; set; }
         public DateTime Fecha { get; set; }
         public string Descripcion { get; set; }
+        public int TiempoTotal { get; set; }
 
         [ForeignKey("ProyectoId")]
         public List<ProyectosDetalle> DetalleProyecto { get; set; }
@@ -21,14 +22,16 @@ namespace WilsonGomez_P2_AP1.Entidades
             ProyectoId = 0;
             Fecha = DateTime.Now;
             Descripcion = "";
+            TiempoTotal = 0;
             DetalleProyecto = new List<ProyectosDetalle>();
         }
 
-        public Proyectos(int proyectoId, DateTime fecha, string descripcion, List<ProyectosDetalle> detalleProyecto)
+        public Proyectos(int proyectoId, DateTime fecha, string descripcion, int tiempoTotal)
         {
             ProyectoId = proyectoId;
             Fecha = fecha;
             Descripcion = descripcion;
+            TiempoTotal = tiempoTotal;
             DetalleProyecto = new List<ProyectosDetalle>();
         }
     }
