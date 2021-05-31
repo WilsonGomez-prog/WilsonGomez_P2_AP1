@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WilsonGomez_P2_AP1.UI.Consultas"
         mc:Ignorable="d"
-        Title="Consulta de partidas" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Consulta de Proyectos" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel>
             <StackPanel>
@@ -18,7 +18,8 @@
 
                 <Label Content="Filtro:" FontSize="15" HorizontalAlignment="Left" Margin="400,-55,0,0" />
                 <ComboBox x:Name="FiltroComboBox" HorizontalAlignment="Left" Width="120" Height="30" Margin="405,-25,0,0">
-
+                    <ComboBoxItem Content="Proyecto ID"/>
+                    <ComboBoxItem Content="Descripcion"/>
                 </ComboBox>
 
                 <Label Content="Criterio:" FontSize="15" HorizontalAlignment="Left" Margin="550,-65,0,0" />

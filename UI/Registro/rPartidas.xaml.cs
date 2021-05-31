@@ -77,8 +77,7 @@ namespace WilsonGomez_P2_AP1.UI.Registro
         {
             if (ValidarTarea())
             {
-                this.Proyectos.DetalleProyecto.Add(new ProyectosDetalle(Convert.ToInt32(IdTextbox.Text), Convert.ToInt32(TipoTareaIdComboBox.SelectedValue) + 1, RequerimientoTextbox.Text, Convert.ToInt32(TiempoTextbox.Text)));
-                this.Proyectos.DetalleProyecto.Where(a => true).Select(a => new { Descripcion = $"{TiposTareaBLL.Buscar(a.TipoTareaId).Descripcion}" });
+                this.Proyectos.DetalleProyecto.Add(new ProyectosDetalle(Convert.ToInt32(IdTextbox.Text), Convert.ToInt32(TipoTareaIdComboBox.SelectedValue), RequerimientoTextbox.Text, Convert.ToInt32(TiempoTextbox.Text)));
                 Proyectos.TiempoTotal = 0;
                 foreach (ProyectosDetalle detalle in Proyectos.DetalleProyecto)
                 {
@@ -160,7 +159,7 @@ namespace WilsonGomez_P2_AP1.UI.Registro
                 EsValido = false;
                 MessageBox.Show("La casilla Proyecto ID no puede tener \nni letras ni caracteres especiales.", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else if (!ValidarCasillaTexto(DescripcionTextbox.Text))
+            else if (ValidarCasillaTexto(DescripcionTextbox.Text) == false)
             {
                 EsValido = false;
                 MessageBox.Show("La casilla Descripcion no puede tener caracteres especiales.", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -216,14 +215,12 @@ namespace WilsonGomez_P2_AP1.UI.Registro
             
             foreach (char invalido in texto.ToCharArray())
             {
-                if (!Char.IsLetterOrDigit(invalido))
+                if (Char.IsLetterOrDigit(invalido) == false )
                 {
-                    return false;
-                }
-
-                if (invalidos.Contains(invalido))
-                {
-                    return false;
+                    if(invalidos.Contains(invalido) == true)
+                    {
+                        return false;
+                    }
                 }
             }
 
